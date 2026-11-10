@@ -11,12 +11,12 @@ lb config noauto \
     --mirror-binary "http://deb.debian.org/debian/" \
     --binary-images iso-hybrid \
     --bootloader syslinux \
+    --bootappend-live "boot=live components quiet splash" \
     --iso-application "Aluminium OS Debian Edition" \
     --iso-publisher "Aluminium OS Community" \
     --iso-volume "ALUMINIUM_DEBIAN" \
     --memtest none \
     --win32-loader false \
-    --system systemd \
     --apt-indices false \
     --apt-recommends true \
     "${@}"
