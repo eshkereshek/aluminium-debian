@@ -1,0 +1,152 @@
+/* Aluminium OS / Googlebook OS Material 3 Theme for GTK 3 */
+
+@define-color surface_dark #131518;
+@define-color surface_container #1c1e22;
+@define-color surface_variant #282a30;
+@define-color outline_subtle rgba(255, 255, 255, 0.08);
+@define-color text_primary #e3e3e8;
+@define-color text_secondary #9aa0a6;
+@define-color accent_blue #a8c7fa;
+@define-color accent_blue_hover #7cacf8;
+@define-color close_red #ea4335;
+@define-color close_red_hover #f28b82;
+
+/* Global Window Rules */
+window {
+  background-color: @surface_dark;
+  color: @text_primary;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 0 1px @outline_subtle;
+}
+
+window.maximized,
+window.fullscreen,
+window.tiled,
+window.tiled-top,
+window.tiled-bottom,
+window.tiled-left,
+window.tiled-right {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Material 3 Headerbar / Titlebar */
+headerbar {
+  min-height: 40px;
+  padding: 0 8px;
+  background-color: @surface_container;
+  background-image: none;
+  border: none;
+  border-bottom: 1px solid @outline_subtle;
+  color: @text_primary;
+  border-radius: 16px 16px 0 0;
+}
+
+window.maximized headerbar,
+window.fullscreen headerbar,
+window.tiled headerbar {
+  border-radius: 0;
+}
+
+headerbar .title {
+  font-weight: 500;
+  font-size: 13px;
+  color: @text_primary;
+}
+
+headerbar .subtitle {
+  font-size: 11px;
+  color: @text_secondary;
+}
+
+/* Window Controls (Minimize, Maximize, Close) */
+headerbar button.titlebutton {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  margin: 2px 3px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  background-image: none;
+  color: @text_secondary;
+  transition: background-color 150ms ease, color 150ms ease, transform 100ms ease;
+}
+
+headerbar button.titlebutton:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+headerbar button.titlebutton:active {
+  background-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  transform: scale(0.95);
+}
+
+/* Close Button Special Material Style */
+headerbar button.titlebutton.close:hover {
+  background-color: rgba(234, 67, 53, 0.22);
+  color: @close_red_hover;
+}
+
+headerbar button.titlebutton.close:active {
+  background-color: rgba(234, 67, 53, 0.40);
+  color: #ffffff;
+}
+
+/* Material 3 Controls */
+button {
+  background-color: @surface_variant;
+  color: @text_primary;
+  border: 1px solid @outline_subtle;
+  border-radius: 18px;
+  padding: 6px 14px;
+  font-weight: 500;
+  transition: all 150ms ease;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+button.suggested-action {
+  background-color: @accent_blue;
+  color: #041e49;
+  border: none;
+}
+
+button.suggested-action:hover {
+  background-color: @accent_blue_hover;
+}
+
+entry {
+  background-color: @surface_variant;
+  color: @text_primary;
+  border: 1px solid @outline_subtle;
+  border-radius: 10px;
+  padding: 6px 12px;
+}
+
+entry:focus {
+  border-color: @accent_blue;
+  box-shadow: 0 0 0 1px @accent_blue;
+}
+
+/* Scrollbars */
+scrollbar {
+  background-color: transparent;
+}
+
+scrollbar slider {
+  min-width: 6px;
+  min-height: 6px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 2px;
+}
+
+scrollbar slider:hover {
+  background-color: rgba(255, 255, 255, 0.35);
+}

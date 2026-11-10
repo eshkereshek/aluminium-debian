@@ -1,0 +1,32 @@
+#!/bin/sh
+set -e
+
+echo "Setting up Aluminium OS live user and permissions..."
+
+# Ensure sudoers configuration for live user
+cat << 'EOF' > /etc/sudoers.d/live-user
+user ALL=(ALL:ALL) NOPASSWD: ALL
+EOF
+chmod 0440 /etc/sudoers.d/live-user
+
+# Ensure GDM3 autologin configuration
+mkdir -p /etc/gdm3
+cat << 'EOF' > /etc/gdm3/daemon.conf
+[daemon]
+WaylandEnable=true
+AutomaticLoginEnable=true
+AutomaticLogin=user
+
+[security]
+
+[xdmcp]
+
+[chooser]
+
+[debug]
+EOF
+
+# Ensure NetworkManager manages all interfaces
+if [ -f /etc/NetworkManager/NetworkManager.conf ]; then
+    sed -i 's/managed=false/managed=true/g' /etc/NetworkManager/NetworkManager.conf
+fi

@@ -1,0 +1,13 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Aluminium-Material
+Comment=Aluminium OS / Googlebook OS Material 3 Desktop Theme
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+GtkTheme=Aluminium-Material
+MetacityTheme=Aluminium-Material
+IconTheme=Papirus-Dark
+GnomeShellTheme=Aluminium-Material
+CursorTheme=Adwaita
+ButtonLayout=:minimize,maximize,close

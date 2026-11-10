@@ -1,0 +1,8 @@
+.build/
+chroot/
+binary/
+cache/
+*.iso
+*.iso.sha256
+dist/
+live-image-amd64.hybrid.iso

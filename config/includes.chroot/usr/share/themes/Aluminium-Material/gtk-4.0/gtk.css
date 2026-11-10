@@ -1,0 +1,94 @@
+/* Aluminium OS / Googlebook OS Material 3 Theme for GTK 4 & Libadwaita */
+
+@define-color surface_dark #131518;
+@define-color surface_container #1c1e22;
+@define-color surface_variant #282a30;
+@define-color outline_subtle rgba(255, 255, 255, 0.08);
+@define-color text_primary #e3e3e8;
+@define-color text_secondary #9aa0a6;
+@define-color accent_blue #a8c7fa;
+@define-color accent_blue_hover #7cacf8;
+@define-color close_red #ea4335;
+@define-color close_red_hover #f28b82;
+
+window.background {
+  background-color: @surface_dark;
+  color: @text_primary;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.55), 0 0 0 1px @outline_subtle;
+}
+
+window.maximized,
+window.fullscreen,
+window.tiled,
+window.tiled-top,
+window.tiled-bottom,
+window.tiled-left,
+window.tiled-right {
+  border-radius: 0;
+  box-shadow: none;
+}
+
+headerbar {
+  min-height: 40px;
+  padding: 0 8px;
+  background-color: @surface_container;
+  border-bottom: 1px solid @outline_subtle;
+  color: @text_primary;
+  border-radius: 16px 16px 0 0;
+}
+
+window.maximized headerbar,
+window.fullscreen headerbar,
+window.tiled headerbar {
+  border-radius: 0;
+}
+
+headerbar windowhandle {
+  padding: 0;
+}
+
+/* Window Control Buttons */
+windowcontrols button {
+  min-width: 28px;
+  min-height: 28px;
+  padding: 0;
+  margin: 2px 3px;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: @text_secondary;
+  transition: all 150ms ease;
+}
+
+windowcontrols button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+windowcontrols button:active {
+  background-color: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+}
+
+windowcontrols button.close:hover {
+  background-color: rgba(234, 67, 53, 0.22);
+  color: @close_red_hover;
+}
+
+windowcontrols button.close:active {
+  background-color: rgba(234, 67, 53, 0.40);
+  color: #ffffff;
+}
+
+button.pill {
+  border-radius: 20px;
+  background-color: @surface_variant;
+  color: @text_primary;
+  border: 1px solid @outline_subtle;
+  padding: 6px 16px;
+}
+
+button.pill:hover {
+  background-color: rgba(255, 255, 255, 0.14);
+}

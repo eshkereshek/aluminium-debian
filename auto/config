@@ -1,0 +1,22 @@
+#!/bin/sh
+set -e
+
+lb config noauto \
+    --mode debian \
+    --distribution bookworm \
+    --architectures amd64 \
+    --linux-flavours amd64 \
+    --archive-areas "main contrib non-free non-free-firmware" \
+    --mirror-bootstrap "http://deb.debian.org/debian/" \
+    --mirror-binary "http://deb.debian.org/debian/" \
+    --binary-images iso-hybrid \
+    --bootloader syslinux \
+    --iso-application "Aluminium OS Debian Edition" \
+    --iso-publisher "Aluminium OS Community" \
+    --iso-volume "ALUMINIUM_DEBIAN" \
+    --memtest none \
+    --win32-loader false \
+    --system systemd \
+    --apt-indices false \
+    --apt-recommends true \
+    "${@}"

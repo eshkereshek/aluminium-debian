@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<metacity_theme>
+<info>
+  <name>Aluminium-Material</name>
+  <author>Aluminium OS</author>
+  <copyright>2026</copyright>
+  <date>2026</date>
+  <description>Aluminium OS Window Decoration Theme</description>
+</info>
+
+<!-- Frame Geometry -->
+<frame_geometry name="frame_normal" rounded_top_left="true" rounded_top_right="true" title_scale="medium">
+  <distance name="left_width" value="1"/>
+  <distance name="right_width" value="1"/>
+  <distance name="bottom_height" value="1"/>
+  <distance name="left_titlebar_edge" value="8"/>
+  <distance name="right_titlebar_edge" value="8"/>
+  <distance name="title_vertical_pad" value="8"/>
+  <distance name="top_titlebar_edge" value="4"/>
+  <distance name="bottom_titlebar_edge" value="4"/>
+  <distance name="button_width" value="28"/>
+  <distance name="button_height" value="28"/>
+  <border name="title_border" left="6" right="6" top="2" bottom="2"/>
+  <border name="button_border" left="2" right="2" top="2" bottom="2"/>
+</frame_geometry>
+
+<frame_geometry name="frame_maximized" parent="frame_normal" rounded_top_left="false" rounded_top_right="false">
+  <distance name="left_width" value="0"/>
+  <distance name="right_width" value="0"/>
+  <distance name="bottom_height" value="0"/>
+</frame_geometry>
+
+<!-- Colors -->
+<constant name="ColorTitleActive" value="#e3e3e8"/>
+<constant name="ColorTitleInactive" value="#8e9196"/>
+<constant name="ColorBgActive" value="#1c1e22"/>
+<constant name="ColorBgInactive" value="#15171a"/>
+<constant name="ColorBorder" value="#2b2d33"/>
+
+<!-- Drawing Styles -->
+<draw_ops name="draw_bg_active">
+  <rectangle color="ColorBgActive" filled="true" x="0" y="0" width="width" height="height"/>
+  <line color="ColorBorder" x1="0" y1="height - 1" x2="width" y2="height - 1"/>
+</draw_ops>
+
+<draw_ops name="draw_bg_inactive">
+  <rectangle color="ColorBgInactive" filled="true" x="0" y="0" width="width" height="height"/>
+  <line color="ColorBorder" x1="0" y1="height - 1" x2="width" y2="height - 1"/>
+</draw_ops>
+
+<!-- Control Buttons -->
+<!-- Minimize Button -->
+<draw_ops name="button_min_normal">
+  <line color="#c4c7c5" width="2" x1="8" y1="14" x2="20" y2="14"/>
+</draw_ops>
+
+<draw_ops name="button_min_hover">
+  <arc color="rgba(255, 255, 255, 0.12)" filled="true" x="2" y="2" width="24" height="24" start_angle="0" extent_angle="360"/>
+  <line color="#ffffff" width="2" x1="8" y1="14" x2="20" y2="14"/>
+</draw_ops>
+
+<draw_ops name="button_min_pressed">
+  <arc color="rgba(255, 255, 255, 0.22)" filled="true" x="2" y="2" width="24" height="24" start_angle="0" extent_angle="360"/>
+  <line color="#ffffff" width="2" x1="8" y1="14" x2="20" y2="14"/>
+</draw_ops>
+
+<!-- Maximize Button -->
+<draw_ops name="button_max_normal">
+  <rectangle color="#c4c7c5" filled="false" x="8" y="8" width="12" height="12"/>
+</draw_ops>
+
+<draw_ops name="button_max_hover">
+  <arc color="rgba(255, 255, 255, 0.12)" filled="true" x="2" y="2" width="24" height="24" start_angle="0" extent_angle="360"/>
+  <rectangle color="#ffffff" filled="false" x="8" y="8" width="12" height="12"/>
+</draw_ops>
+
+<draw_ops name="button_max_pressed">
+  <arc color="rgba(255, 255, 255, 0.22)" filled="true" x="2" y="2" width="24" height="24" start_angle="0" extent_angle="360"/>
+  <rectangle color="#ffffff" filled="false" x="8" y="8" width="12" height="12"/>
+</draw_ops>
+
+<!-- Close Button -->
+<draw_ops name="button_close_normal">
+  <line color="#c4c7c5" width="2" x1="8" y1="8" x2="20" y2="20"/>
+  <line color="#c4c7c5" width="2" x1="20" y1="8" x2="8" y2="20"/>
+</draw_ops>
+
+<draw_ops name="button_close_hover">
+  <arc color="rgba(234, 67, 53, 0.22)" filled="true" x="2" y="2" width="24" height="24" start_angle="0" extent_angle="360"/>
+  <line color="#f28b82" width="2" x1="8" y1="8" x2="20" y2="20"/>
+  <line color="#f28b82" width="2" x1="20" y1="8" x2="8" y2="20"/>
+</draw_ops>
+
+<draw_ops name="button_close_pressed">
+  <arc color="rgba(234, 67, 53, 0.40)" filled="true" x="2" y="2" width="24" height="24" start_angle="0" extent_angle="360"/>
+  <line color="#ffffff" width="2" x1="8" y1="8" x2="20" y2="20"/>
+  <line color="#ffffff" width="2" x1="20" y1="8" x2="8" y2="20"/>
+</draw_ops>
+
+<!-- Frame Styles -->
+<frame_style name="style_normal" geometry="frame_normal">
+  <piece position="entire_background" draw_ops="draw_bg_active"/>
+  <piece position="title" draw_ops="draw_bg_active"/>
+  <button function="close" state="normal" draw_ops="button_close_normal"/>
+  <button function="close" state="prelight" draw_ops="button_close_hover"/>
+  <button function="close" state="pressed" draw_ops="button_close_pressed"/>
+  <button function="maximize" state="normal" draw_ops="button_max_normal"/>
+  <button function="maximize" state="prelight" draw_ops="button_max_hover"/>
+  <button function="maximize" state="pressed" draw_ops="button_max_pressed"/>
+  <button function="minimize" state="normal" draw_ops="button_min_normal"/>
+  <button function="minimize" state="prelight" draw_ops="button_min_hover"/>
+  <button function="minimize" state="pressed" draw_ops="button_min_pressed"/>
+</frame_style>
+
+<frame_style name="style_inactive" geometry="frame_normal">
+  <piece position="entire_background" draw_ops="draw_bg_inactive"/>
+  <piece position="title" draw_ops="draw_bg_inactive"/>
+  <button function="close" state="normal" draw_ops="button_close_normal"/>
+  <button function="close" state="prelight" draw_ops="button_close_hover"/>
+  <button function="close" state="pressed" draw_ops="button_close_pressed"/>
+  <button function="maximize" state="normal" draw_ops="button_max_normal"/>
+  <button function="maximize" state="prelight" draw_ops="button_max_hover"/>
+  <button function="maximize" state="pressed" draw_ops="button_max_pressed"/>
+  <button function="minimize" state="normal" draw_ops="button_min_normal"/>
+  <button function="minimize" state="prelight" draw_ops="button_min_hover"/>
+  <button function="minimize" state="pressed" draw_ops="button_min_pressed"/>
+</frame_style>
+
+<frame_style_set name="normal_style_set">
+  <frame focus="yes" state="normal" resize="both" style="style_normal"/>
+  <frame focus="no" state="normal" resize="both" style="style_inactive"/>
+  <frame focus="yes" state="maximized" style="style_normal"/>
+  <frame focus="no" state="maximized" style="style_inactive"/>
+</frame_style_set>
+
+<window type="normal" style_set="normal_style_set"/>
+<window type="dialog" style_set="normal_style_set"/>
+<window type="modal_dialog" style_set="normal_style_set"/>
+
+</metacity_theme>

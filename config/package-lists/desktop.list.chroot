@@ -1,0 +1,87 @@
+# Linux Kernel & Broad Hardware Firmware Support
+linux-image-amd64
+linux-headers-amd64
+firmware-linux
+firmware-linux-nonfree
+firmware-misc-nonfree
+firmware-iwlwifi
+firmware-realtek
+firmware-atheros
+firmware-intel-sound
+firmware-sof-signed
+
+# Audio & Bluetooth
+pipewire
+pipewire-pulse
+pipewire-alsa
+wireplumber
+bluez
+bluez-tools
+pulseaudio-utils
+
+# Display Manager & Boot Splash
+gdm3
+plymouth
+plymouth-themes
+plymouth-label
+
+# GNOME Base & Core Components
+gnome-shell
+gnome-session
+gnome-control-center
+gnome-terminal
+nautilus
+gnome-tweaks
+gnome-shell-extensions
+dconf-cli
+dconf-editor
+libglib2.0-bin
+
+# GNOME Shell Extensions for Aluminium OS Windowing & Shelf
+gnome-shell-extension-dashtodock
+gnome-shell-extension-dash-to-panel
+gnome-shell-extension-prefs
+gir1.2-gtop-2.0
+gir1.2-nm-1.0
+gir1.2-clutter-1.0
+
+# Themes & Icons
+papirus-icon-theme
+adwaita-icon-theme
+
+# Typography
+fonts-roboto
+fonts-noto-color-emoji
+fonts-noto
+fonts-inter
+
+# Live System Core
+live-boot
+live-config
+live-config-systemd
+
+# Calamares Graphical System Installer
+calamares
+calamares-settings-debian
+gparted
+parted
+dosfstools
+e2fsprogs
+btrfs-progs
+squashfs-tools
+rsync
+
+# Base Desktop Utilities & Browsing
+firefox-esr
+network-manager-gnome
+network-manager-openvpn-gnome
+gnome-calculator
+gnome-text-editor
+gnome-system-monitor
+eog
+curl
+wget
+git
+unzip
+sudo
+polkit-1

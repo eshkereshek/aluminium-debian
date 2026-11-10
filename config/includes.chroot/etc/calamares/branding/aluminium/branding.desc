@@ -1,0 +1,24 @@
+---
+componentName:  aluminium
+
+strings:
+    productName:         "Aluminium OS"
+    shortProductName:    "Aluminium"
+    version:             "1.0 (Debian Edition)"
+    shortVersion:        "1.0"
+    versionedName:       "Aluminium OS 1.0 Debian Edition"
+    shortVersionedName:  "Aluminium OS 1.0"
+    bootloaderEntryName: "Aluminium OS"
+    productUrl:          "https://aluminium-os.com"
+    supportUrl:          "https://aluminium-os.com"
+
+images:
+    productLogo:         "/usr/share/icons/aluminium/google-g.svg"
+    productIcon:         "/usr/share/icons/aluminium/google-g.svg"
+    productWelcome:      "/usr/share/backgrounds/aluminium/aluminium-dark.png"
+
+style:
+   SidebarBackground:    "#131518"
+   SidebarText:          "#e3e3e8"
+   SidebarTextSelect:    "#a8c7fa"
+   SidebarTextHighlight: "#a8c7fa"

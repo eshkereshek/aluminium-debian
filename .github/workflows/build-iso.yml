@@ -1,0 +1,98 @@
+name: Build Aluminium OS Debian Live ISO
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      create_release:
+        description: 'Publish as GitHub Release'
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  build:
+    name: Build Live ISO (Debian Bookworm)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Free disk space on runner
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc /opt/hostedtoolcache/CodeQL
+          sudo docker image prune -a -f || true
+          df -h
+
+      - name: Build Debian Live ISO in Debian Bookworm container
+        run: |
+          docker run --privileged --rm \
+            -v "${{ github.workspace }}":/build \
+            -w /build \
+            debian:bookworm bash -c '
+              set -ex
+              export DEBIAN_FRONTEND=noninteractive
+              apt-get update
+              apt-get install -y live-build debootstrap squashfs-tools xorriso isolinux syslinux syslinux-common dosfstools mtools
+
+              # Ensure scripts are executable
+              chmod +x auto/* config/hooks/live/* build-iso.sh || true
+
+              # Clean and configure
+              lb clean --purge
+              lb config
+
+              # Build
+              lb build
+
+              # Prepare artifact
+              mkdir -p dist
+              if [ -f live-image-amd64.hybrid.iso ]; then
+                mv live-image-amd64.hybrid.iso dist/aluminium-os-debian-amd64.iso
+                cd dist
+                sha256sum aluminium-os-debian-amd64.iso > aluminium-os-debian-amd64.iso.sha256
+                echo "=== ISO Build Finished Successfully ==="
+                ls -lh
+              else
+                echo "Error: Output ISO was not produced!"
+                exit 1
+              fi
+            '
+
+      - name: Upload ISO Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: aluminium-os-debian-iso
+          path: |
+            dist/aluminium-os-debian-amd64.iso
+            dist/aluminium-os-debian-amd64.iso.sha256
+          retention-days: 14
+
+      - name: Create GitHub Release
+        if: github.event.inputs.create_release == 'true' || github.event_name == 'push'
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: v1.0.${{ github.run_number }}
+          name: Aluminium OS Debian Edition v1.0 (Build ${{ github.run_number }})
+          body: |
+            # Aluminium OS (Debian Edition) v1.0
+
+            Automated cloud build of Aluminium OS (Googlebook OS / Android Desktop look & feel) based on Debian 12 Bookworm.
+
+            ### Features
+            - **Window Management & Controls**: Material 3 window styling with right-aligned rounded titlebar buttons (`:minimize,maximize,close`), smooth hover ripples, 16px corner radiuses, and Mutter split-screen snapping (`Super+Left`, `Super+Right`).
+            - **Floating Shelf (Dock)**: Centered pill dock at bottom with Google "G" application launcher button and running app dot indicators.
+            - **Top Status Bar**: Compact panel with date/time on left and network/audio/battery indicators on right.
+            - **Calamares Installer**: Full graphical live installer to install Aluminium OS directly to NVMe/SSD or dual-boot alongside Windows/Linux.
+            - **Kernel & Drivers**: Linux kernel 6.x with non-free firmware for broad Wi-Fi, Bluetooth, Intel/AMD graphics, and audio support.
+          files: |
+            dist/aluminium-os-debian-amd64.iso
+            dist/aluminium-os-debian-amd64.iso.sha256
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

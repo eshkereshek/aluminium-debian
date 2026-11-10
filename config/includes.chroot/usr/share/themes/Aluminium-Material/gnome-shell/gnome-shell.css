@@ -1,0 +1,133 @@
+/* Aluminium OS / Googlebook OS Material 3 GNOME Shell Theme */
+
+/* Stage & Global Font */
+stage {
+  font-family: "Google Sans", "Roboto", "Noto Sans", sans-serif;
+  font-size: 11pt;
+  color: #e3e3e8;
+}
+
+/* Top Panel (Status Bar) */
+#panel {
+  background-color: rgba(18, 20, 24, 0.65);
+  font-weight: 500;
+  height: 32px;
+  box-shadow: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 250ms ease;
+}
+
+#panel.solid {
+  background-color: #14161a;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+#panel .panel-button {
+  font-weight: 500;
+  color: #e3e3e8;
+  padding: 0 10px;
+  border-radius: 16px;
+  transition: all 150ms ease;
+}
+
+#panel .panel-button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+}
+
+#panel .panel-button:active {
+  background-color: rgba(255, 255, 255, 0.20);
+}
+
+/* Quick Settings & Popup Menus */
+.popup-menu-content {
+  background-color: #1c1e23;
+  border-radius: 20px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6);
+}
+
+.popup-menu-item {
+  border-radius: 12px;
+  padding: 8px 12px;
+  color: #e3e3e8;
+}
+
+.popup-menu-item:hover,
+.popup-menu-item:focus {
+  background-color: rgba(255, 255, 255, 0.10);
+  color: #ffffff;
+}
+
+/* Bottom Floating Shelf (Dash / Dock) */
+#dashtodockContainer.bottom #dash,
+.dash-to-dock-panel {
+  background-color: rgba(24, 26, 31, 0.85) !important;
+  border-radius: 28px !important;
+  padding: 4px 8px !important;
+  border: 1px solid rgba(255, 255, 255, 0.10) !important;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.55) !important;
+}
+
+#dash .dash-item-container > StButton {
+  border-radius: 22px;
+  padding: 6px;
+  transition: all 150ms ease;
+}
+
+#dash .dash-item-container > StButton:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* Running App Indicator Dot */
+.app-well-app-running-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: #a8c7fa;
+  margin-bottom: 2px;
+  box-shadow: 0 0 6px rgba(168, 199, 250, 0.6);
+}
+
+/* App Grid / Drawer */
+.icon-grid {
+  row-spacing: 24px;
+  column-spacing: 24px;
+}
+
+.icon-grid .app-well-app .overview-icon {
+  border-radius: 24px;
+  padding: 10px;
+  transition: all 150ms ease;
+}
+
+.icon-grid .app-well-app:hover .overview-icon {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+
+/* Material Search Entry */
+.search-entry {
+  background-color: #24272e;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 24px;
+  padding: 8px 18px;
+  color: #e3e3e8;
+  font-size: 13pt;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+}
+
+.search-entry:focus {
+  border-color: #a8c7fa;
+  box-shadow: 0 0 0 1px #a8c7fa, 0 4px 16px rgba(0, 0, 0, 0.45);
+}
+
+/* Modal Dialogs */
+.modal-dialog {
+  background-color: #1e2025;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.7);
+  padding: 24px;
+}

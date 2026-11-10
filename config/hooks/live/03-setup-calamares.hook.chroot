@@ -1,0 +1,21 @@
+#!/bin/sh
+set -e
+
+echo "Setting up Calamares installer for Aluminium OS..."
+
+# Create desktop launcher for live session installation
+mkdir -p /etc/skel/Desktop
+cat << 'EOF' > /etc/skel/Desktop/install-aluminium.desktop
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=Install Aluminium OS
+GenericName=Live System Installer
+Comment=Install Aluminium OS Debian Edition to your hard drive or SSD
+Exec=sudo -E calamares
+Icon=calamares
+Terminal=false
+StartupNotify=true
+Categories=Qt;System;
+EOF
+chmod +x /etc/skel/Desktop/install-aluminium.desktop
